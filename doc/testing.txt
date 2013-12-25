@@ -1,0 +1,7 @@
+curl https://api.spark.io/v1/devices/$device1/digitalwrite -d access_token=$token -d params=D1,HIGH
+
+curl https://api.spark.io/v1/devices/$device1/digitalwrite -d access_token=$token -d params=D1,LOW
+
+curl https://api.spark.io/v1/devices/$device1/digitalread -d access_token=$token -d params=D7
+curl https://api.spark.io/v1/devices/$device1/digitalread -d access_token=$token -d params=D7 -d params=D6 -d params=D5 
+

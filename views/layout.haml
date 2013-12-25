@@ -1,0 +1,32 @@
+!!! 5
+%html
+	%head
+		%title Up Down
+		%script{src:"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+		%link{href: "/stylesheets/screen.css", media: "screen, projection", rel: "stylesheet", type: "text/css"}
+		/ 
+			Created & coded by @itsluke (http://lukecreates.com)
+			Built using Sinatra, Redis and a Spark Core
+			
+	%body
+		#container
+			%table{style:"height: 100%; width: 100%"}
+				%tr 
+					%td{align: "center", valign: "middle"} 
+						%h1 
+							Currently linked to 8 LED's sitting on my desk.
+						= yield
+
+		%script{type: "text/javascript"}
+			:plain
+				var clicky_site_ids = clicky_site_ids || [];
+					clicky_site_ids.push(100687627);
+					(function() {
+					  var s = document.createElement('script');
+					  s.type = 'text/javascript';
+					  s.async = true;
+					  s.src = '//static.getclicky.com/js';
+					  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+					})();
+				
+		%img{alt:"Clicky", width:"1", height: "1", src: "//in.getclicky.com/100687627ns.gif"}

@@ -1,0 +1,80 @@
+@import compass/reset
+@import compass/css3/opacity
+@import compass/css3/box-shadow
+
+.rounded
+	-webkit-border-radius: 6px
+	-moz-border-radius: 6px
+	border-radius: 6px
+
+body
+	font-family: sans-serif
+	background: #F9FAFA
+
+h1
+	margin: 20px auto
+	font-size: 26px
+	text-align: center
+	width: 600px
+
+.btn
+	font-size: 18px
+	color: #FFFFFF
+	border: none 
+	border: none
+	width: 42px
+	height: 40px
+	background: none
+	-webkit-border-radius: 6px
+	-moz-border-radius: 6px
+	border-radius: 6px
+	padding: 8px
+	float: left
+	margin: 6px
+	@extend .rounded
+	outline: none
+
+.active 
+	background-color: #75B63C
+.inactive 
+	background-color: #E7E4E7
+
+.error
+	background-color: #DD4B39
+
+#digital, #analog
+	margin: 10px auto
+	padding: 20px
+	width: 54px
+	@extend .rounded
+
+#analog
+	+opacity(0.5)
+	float: left
+#digital
+	float: right
+	.btn
+		cursor: pointer
+
+.cf:before, .cf:after 
+	content: " " /* 1 */
+	display: table /* 2 */
+.cf:after 
+	clear: both
+
+.board, .message
+	@extend .rounded
+	background: #FFF
+	width: 200px
+	padding: 20px
+	margin: 6px auto
+	border: 1px solid #E7E4E7
+	+single-box-shadow(rgba(#394750, 0.1), 2px, 2px, 24px)
+
+.message
+	background-color: #394750
+	display: block
+	font-size: 24px
+	line-height: 28px
+	color: #E7E4E7
+	text-align: center

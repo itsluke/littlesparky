@@ -1,0 +1,55 @@
+.message#info
+	= ENV["DEVISE_NAME"]
+.board.cf
+	- if @pins
+		%ul#analog
+			- @pins.each do |k, v|
+				- if k.match("A")
+					- if v == "1"
+						%input{value: k, type: "submit", class: "btn active"}
+					- else
+						%input{value: k, type: "submit", class: "btn inactive"}
+		%ul#digital
+			- @pins.each do |k, v|
+				- if k.match("D")
+					- if v == "1"
+						%form{class: "pins", id: "#{k}-form"}
+							%input{type: "hidden", name: "action[pin]", value: k}
+							%input{type: "hidden", name: "action[value]", value: "LOW", class: "value"}
+							%input{value: k, type: "submit", class: "btn active"}
+					- else
+						%form{class: "pins", id: "#{k}-form"}
+							%input{type: "hidden", name: "action[pin]", value: k}
+							%input{type: "hidden", name: "action[value]", value: "HIGH", class: "value"}
+							%input{value: k, type: "submit", class: "btn inactive"}
+
+	%script
+		:plain
+			$(function() {
+
+				$("form.pins").submit(function(e){
+					e.preventDefault();
+					var $this = $(this);
+					var $info = $("#info"),
+						$btn = $this.children("input.btn").removeClass("error").toggleClass("active inactive");
+					$.ajax({
+						type: "POST",
+						url: "/updown",
+						data: $(this).serialize(),
+						success: function(){
+							var $toggle = $this.children(".value");
+							if ($toggle.val() == "HIGH"){
+								$toggle.val("LOW");
+								$info.text( $btn.attr('value') + " HIGH");
+							}else{
+								$toggle.val("HIGH");
+								$info.text( $btn.attr('value') + " LOW");
+							};
+						},
+						error: function(){
+							$("#info").text("ERROR");
+							$btn.addClass("error");
+						}
+					});
+				});
+			});
