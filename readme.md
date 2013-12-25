@@ -1,4 +1,4 @@
-Toggle spark digitalpins with web interface
+Toggle digital pins via web interface
 ============
 
 A quick and dirty sinatra wrapper to interact with the spark cores digital pins via the Tinker API.
