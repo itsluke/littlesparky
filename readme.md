@@ -1,5 +1,6 @@
-A little Sinatra app to toggle spark core digitalpin
+Toggle spark digitalpins with web interface
 ============
-A quick and dirty sinatra wrapper to interact with the spark cores tinker api.
-Feel free to break, play and share
-https://www.spark.io/
+
+A quick and dirty sinatra wrapper to interact with the spark cores digital pins via the Tinker API.
+
+Enjoy playing with your spark cores, and feel free to break, play and share the code.
